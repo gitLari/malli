@@ -1,12 +1,12 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/Lariballs/malli', '.']
+  args: ['build', '-t', 'gcr.io/lariballs/malli', '.']
 # Push the image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/Lariballs/malli']
+  args: ['push', 'gcr.io/lariballs/malli']
 # Deploy image to Cloud Run
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'malliservice', '--image', 'gcr.io/Lariballs/malli', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
+  args: ['beta', 'run', 'deploy', 'malliservice', '--image', 'gcr.io/lariballs/malli', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
 images:
-- gcr.io/Lariballs/malli
+- gcr.io/lariballs/malli
